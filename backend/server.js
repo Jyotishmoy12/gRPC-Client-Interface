@@ -48,6 +48,63 @@ app.post('/api/grpc-request', (req, res) => {
     }
 });
 
+
+// Get available methods with enhanced documentation
+app.get('/api/methods', (req, res) => {
+    res.json({
+        methods: [
+            { 
+                name: 'sayHello', 
+                params: [
+                    { name: 'name', type: 'string', description: 'The name to greet', required: true }
+                ],
+                returns: {
+                    type: 'HelloResponse',
+                    description: 'Response containing a greeting message',
+                    fields: [
+                        { name: 'message', type: 'string', description: 'The greeting message returned from the server' }
+                    ]
+                },
+                description: 'Sends a greeting to the server and receives a response.'
+            },
+            { 
+                name: 'getUserInfo', 
+                params: [
+                    { name: 'userId', type: 'int32', description: 'The ID of the user to fetch', required: true }
+                ],
+                returns: {
+                    type: 'UserResponse',
+                    description: 'Response containing user details',
+                    fields: [
+                        { name: 'userId', type: 'int32', description: 'The user ID' },
+                        { name: 'username', type: 'string', description: 'The username' },
+                        { name: 'email', type: 'string', description: 'The user\'s email address' },
+                        { name: 'role', type: 'string', description: 'The user\'s role (e.g., admin, user)' }
+                    ]
+                },
+                description: 'Fetches user information based on the provided user ID.'
+            },
+            { 
+                name: 'sendMessage', 
+                params: [
+                    { name: 'recipient', type: 'string', description: 'The recipient of the message', required: true },
+                    { name: 'content', type: 'string', description: 'The content of the message', required: true }
+                ],
+                returns: {
+                    type: 'MessageResponse',
+                    description: 'Response containing the status of the message delivery',
+                    fields: [
+                        { name: 'success', type: 'bool', description: 'Whether the message was sent successfully' },
+                        { name: 'messageId', type: 'string', description: 'Unique identifier for the sent message' },
+                        { name: 'timestamp', type: 'string', description: 'The time when the message was sent' }
+                    ]
+                },
+                description: 'Sends a message to the specified recipient.'
+            }
+        ]
+    });
+});
+
 app.listen(port, () => {
     console.log(`Express server running at http://localhost:${port}`);
 });
