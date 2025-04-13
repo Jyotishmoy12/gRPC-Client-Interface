@@ -30,4 +30,15 @@ It's great for:
 - 🧪 Testing gRPC services without CLI tools
 - 🔍 Debugging and visualizing request/response timings
 
+# Images
+![Screenshot 2025-04-13 130017](https://github.com/user-attachments/assets/8e4f0522-cbba-4b18-ba4e-fb78ad9a3a84)
+
+![Screenshot 2025-04-13 125957](https://github.com/user-attachments/assets/b38d5874-f886-4dd6-885c-963227806d69)
+
+![Screenshot 2025-04-13 130006](https://github.com/user-attachments/assets/52efa910-77b0-4927-afe9-07b2ec64b5b3)
+
+
+
+
+
 
