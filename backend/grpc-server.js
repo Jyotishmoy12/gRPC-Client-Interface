@@ -50,10 +50,11 @@ const sendMessage = (call, callback) => {
 // Start the server
 const server = new grpc.Server();
 server.addService(proto.service, { 
-    sayHello: sayHello,
-    getUserInfo: getUserInfo,
-    sendMessage: sendMessage
+    SayHello: sayHello,
+    GetUserInfo: getUserInfo,
+    SendMessage: sendMessage
 });
+
 
 server.bindAsync('127.0.0.1:50051', grpc.ServerCredentials.createInsecure(), (error, port) => {
     if (error) {

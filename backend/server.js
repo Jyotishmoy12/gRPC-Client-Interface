@@ -18,15 +18,7 @@ const proto = grpc.loadPackageDefinition(packageDefinition);
 const client = new proto.Greeter('127.0.0.1:50051', grpc.credentials.createInsecure());
 
 // Get available methods
-app.get('/api/methods', (req, res) => {
-    res.json({
-        methods: [
-            { name: 'sayHello', params: ['name'] },
-            { name: 'getUserInfo', params: ['userId'] },
-            { name: 'sendMessage', params: ['recipient', 'content'] }
-        ]
-    });
-});
+
 
 app.post('/api/grpc-request', (req, res) => {
     const { method, payload } = req.body;
